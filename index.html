@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061a12">
+<title>ĐSG SHOP VIP PRO MAX</title>
+<style>
+:root{--bg:#061711;--panel:#0e281c;--panel2:#143827;--green:#20e69a;--mint:#b6ffdc;--muted:#a8c7b6;--line:#245b40}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#123b28 0,#061711 55%);color:#f0fff6;font:15px/1.55 system-ui,-apple-system,Arial,sans-serif}
+a{color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{padding:26px 16px 22px;text-align:center;background:linear-gradient(125deg,#087b50,#0fd18a);color:#032718}
+.brand{font-weight:950;font-size:clamp(23px,5vw,36px);letter-spacing:.4px;margin:0}.tag{margin:6px 0 0;font-weight:650}
+.pill{display:inline-block;margin-top:12px;padding:5px 11px;border:1px solid #075c3b;border-radius:99px;font-size:12px;font-weight:800}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:7px;overflow-x:auto;padding:10px;background:#071c13ed;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+nav a{white-space:nowrap;text-decoration:none;color:var(--mint);padding:8px 10px;border-radius:9px}nav a:hover{background:#16442e}
+main{max-width:1000px;margin:auto;padding:14px}
+.hero,.panel{border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;background:linear-gradient(145deg,#102d20,#0a2117);box-shadow:0 12px 30px #0002}
+.hero{background:linear-gradient(125deg,#103d29,#0d2419)}h2{margin:0 0 12px;color:var(--green);font-size:21px}h3{margin:5px 0 8px}.muted,.hint{color:var(--muted)}.hint{font-size:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.btn{display:inline-block;border:0;border-radius:10px;padding:11px 14px;background:var(--green);color:#032719;text-decoration:none;font-weight:850}.btn.alt{background:#1a4631;color:#dffff0;border:1px solid #347652}.btn.danger{background:#542b2b;color:#ffe5e5}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:11px}.item{border:1px solid #24553c;background:#112f20;border-radius:14px;padding:14px;min-width:0}.item p{margin:5px 0;color:var(--muted)}.emoji{font-size:24px}.price{font-weight:900;color:#7fffc0}
+input,select,textarea{width:100%;padding:12px;margin:5px 0 12px;background:#061a11;color:#f0fff6;border:1px solid #2b6848;border-radius:10px;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--green)}label{font-weight:750;font-size:13px;color:#d8ffea}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}.order{border:1px solid var(--line);padding:12px;border-radius:12px;margin:9px 0;background:#0a2117;overflow-wrap:anywhere}.order small{color:var(--muted)}
+.qr{width:min(100%,310px);display:block;border-radius:12px;background:white;margin:12px auto}.center{text-align:center}
+footer{text-align:center;padding:26px 15px;color:var(--muted)}.search{max-width:450px}
+@media(min-width:700px){main{padding:22px}.hero{padding:25px}}
+</style>
+</head>
+<body>
+<header>
+  <p class="brand">ĐSG SHOP VIP PRO MAX</p>
+  <p class="tag">DỊCH VỤ MẠNG XÃ HỘI • ACC GAME</p>
+  <span class="pill">⚡ Chọn dịch vụ · Gửi yêu cầu · Liên hệ hỗ trợ</span>
+</header>
+<nav>
+  <a href="#dichvu">Dịch vụ MXH</a><a href="#game">ACC Game</a><a href="#datdon">Đặt yêu cầu</a>
+  <a href="#baogia">Báo giá</a><a href="#thanhtoan">Thanh toán</a><a href="#lichsu">Lịch sử</a><a href="#hotro">Hỗ trợ</a>
+</nav>
+<main>
+<section class="hero">
+  <h2>🌿 Chào mừng đến ĐSG SHOP</h2>
+  <p>Chọn dịch vụ cần hỏi giá hoặc tài khoản game muốn mua. Giá và tình trạng cần được shop xác nhận trước khi thanh toán.</p>
+  <div class="row"><a class="btn" href="#dichvu">Khám phá dịch vụ</a><a class="btn alt" href="#baogia">📩 Báo giá</a></div>
+  <p class="hint">Lưu ý: Trang hiện lưu yêu cầu trên trình duyệt của thiết bị này, chưa gửi đơn đến máy chủ.</p>
+</section>
+
+<section id="dichvu" class="panel">
+  <h2>🚀 Dịch vụ mạng xã hội</h2>
+  <input class="search" id="search" placeholder="🔎 Tìm Facebook, TikTok, view..." oninput="filterItems()">
+  <div class="grid" id="services">
+    <article class="item" data-search="facebook like follow share comment"><div class="emoji">📘</div><h3>Facebook</h3><p>Like · Follow · Share · Bình luận</p><button class="btn" onclick="selectService('Dịch vụ Facebook')">Chọn dịch vụ</button></article>
+    <article class="item" data-search="tiktok tim follow view xem video"><div class="emoji">🎵</div><h3>TikTok</h3><p>Tim · Follow · Lượt xem</p><button class="btn" onclick="selectService('Dịch vụ TikTok')">Chọn dịch vụ</button></article>
+    <article class="item" data-search="instagram like follow view"><div class="emoji">📸</div><h3>Instagram</h3><p>Like · Follow · View</p><button class="btn" onclick="selectService('Dịch vụ Instagram')">Chọn dịch vụ</button></article>
+    <article class="item" data-search="youtube view đăng ký subscribe"><div class="emoji">▶️</div><h3>YouTube</h3><p>Lượt xem · Đăng ký</p><button class="btn" onclick="selectService('Dịch vụ YouTube')">Chọn dịch vụ</button></article>
+    <article class="item" data-search="telegram thành viên"><div class="emoji">✈️</div><h3>Telegram</h3><p>Thành viên · Tương tác</p><button class="btn" onclick="selectService('Dịch vụ Telegram')">Chọn dịch vụ</button></article>
+    <article class="item" data-search="zalo mxh khác"><div class="emoji">🌐</div><h3>Zalo & MXH khác</h3><p>Gửi yêu cầu để hỏi khả năng hỗ trợ</p><button class="btn" onclick="selectService('Dịch vụ MXH khác')">Chọn dịch vụ</button></article>
+  </div>
+</section>
+
+<section id="game" class="panel">
+  <h2>🎮 Mua bán tài khoản game</h2>
+  <div class="grid">
+    <article class="item"><div class="emoji">🔥</div><h3>Free Fire</h3><p>Hỏi tài khoản, skin, rank và giá hiện tại.</p><button class="btn" onclick="selectService('Mua ACC Free Fire')">Hỏi mua</button></article>
+    <article class="item"><div class="emoji">⚔️</div><h3>Liên Quân Mobile</h3><p>Hỏi tướng, trang phục, rank và giá.</p><button class="btn" onclick="selectService('Mua ACC Liên Quân')">Hỏi mua</button></article>
+  </div>
+  <p class="hint">Chỉ giao dịch tài khoản bạn có quyền bán; hãy xác minh thông tin, điều kiện chuyển nhượng và bảo mật trước khi mua.</p>
+</section>
+
+<section id="datdon" class="panel">
+  <h2>🛒 Gửi yêu cầu / đặt đơn</h2>
+  <form id="orderForm">
+    <div class="formgrid">
+      <div><label for="service">Dịch vụ cần mua *</label><input id="service" required placeholder="Ví dụ: TikTok Follow"></div>
+      <div><label for="quantity">Số lượng</label><input id="quantity" type="number" min="1" placeholder="Ví dụ: 100"></div>
+      <div><label for="target">Link bài viết / UID / mã ACC</label><input id="target" placeholder="Không nhập mật khẩu tài khoản"></div>
+      <div><label for="contact">Thông tin liên hệ</label><input id="contact" placeholder="Zalo / Facebook (tuỳ chọn)"></div>
+    </div>
+    <label for="details">Ghi chú</label><textarea id="details" rows="3" placeholder="Yêu cầu cụ thể, ngân sách dự kiến..."></textarea>
+    <div class="row"><button class="btn" type="submit">Lưu yêu cầu</button><button class="btn alt" type="button" onclick="makeQuote()">Tạo nội dung báo giá</button></div>
+  </form>
+  <p class="hint">Không gửi mật khẩu, mã OTP hoặc thông tin đăng nhập cho shop qua biểu mẫu này.</p>
+</section>
+
+<section id="baogia" class="panel">
+  <h2>💰 Báo giá</h2>
+  <p>Chọn dịch vụ ở trên rồi bấm “Tạo nội dung báo giá”. Bạn có thể sao chép nội dung để gửi cho shop.</p>
+  <textarea id="quoteText" rows="4" placeholder="Nội dung báo giá sẽ hiện ở đây..." readonly></textarea>
+  <button class="btn alt" onclick="copyQuote()">📋 Sao chép báo giá</button>
+</section>
+
+<section id="thanhtoan" class="panel center">
+  <h2>💳 Thanh toán Vietcombank</h2>
+  <p>Chủ tài khoản: <b>LUONG THI KHEP</b></p>
+  <p>Số tài khoản: <b>1072852788</b></p>
+  <p>Chi nhánh hiển thị trên ảnh QR: PGD Duy Tân</p>
+  <img class="qr" src="qr.jpg" alt="Mã QR Vietcombank do chủ shop cung cấp">
+  <button class="btn alt" onclick="copyAccount()">📋 Sao chép số tài khoản</button>
+  <p class="hint">Xác nhận đúng người nhận, số tiền và nội dung chuyển khoản trước khi gửi tiền. Trang chưa tự động kiểm tra giao dịch.</p>
+</section>
+
+<section id="lichsu" class="panel">
+  <h2>📜 Lịch sử yêu cầu trên thiết bị</h2>
+  <p class="hint">Dữ liệu chỉ lưu trong trình duyệt hiện tại. Xoá dữ liệu trình duyệt hoặc đổi thiết bị có thể làm mất lịch sử.</p>
+  <div id="history"></div>
+  <button class="btn danger" onclick="clearHistory()">Xóa lịch sử trên thiết bị</button>
+</section>
+
+<section id="hotro" class="panel">
+  <h2>🎧 Hỗ trợ khách hàng</h2>
+  <p>Hãy thay đường dẫn dưới đây bằng trang Facebook/Zalo hỗ trợ thật của shop.</p>
+  <div class="row"><a class="btn" id="supportLink" href="https://www.facebook.com/" target="_blank" rel="noopener">Mở Facebook hỗ trợ</a><button class="btn alt" onclick="copySupport()">Sao chép yêu cầu hỗ trợ</button></div>
+  <p class="hint">Liên kết hỗ trợ hiện là đường dẫn mặc định, chưa phải tài khoản riêng của shop.</p>
+</section>
+</main>
+<footer>© 2026 ĐSG SHOP VIP PRO MAX · Thiết kế tối ưu cho điện thoại</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+function selectService(name){$('service').value=name;location.hash='datdon';}
+function filterItems(){
+ const q=$('search').value.toLowerCase().trim();
+ document.querySelectorAll('#services .item').forEach(el=>el.style.display=el.dataset.search.includes(q)?'':'none');
+}
+function getOrders(){try{return JSON.parse(localStorage.getItem('dsg_orders')||'[]')}catch(e){return []}}
+function escapeHTML(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('orderForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const order={id:'DSG-'+Date.now().toString().slice(-8),service:$('service').value.trim(),quantity:$('quantity').value||'Chưa nhập',target:$('target').value.trim(),contact:$('contact').value.trim(),details:$('details').value.trim(),time:new Date().toLocaleString('vi-VN'),status:'Chờ shop xác nhận'};
+ const list=getOrders();list.unshift(order);
+ try{localStorage.setItem('dsg_orders',JSON.stringify(list));renderHistory();alert('Đã lưu yêu cầu trên thiết bị này. Đơn chưa được gửi đến shop.');}
+ catch(err){alert('Không lưu được. Hãy kiểm tra dung lượng trình duyệt.');}
+});
+function renderHistory(){
+ const list=getOrders();
+ $('history').innerHTML=list.length?list.map(o=>`<div class="order"><b>${escapeHTML(o.id)} · ${escapeHTML(o.service)}</b><p>Số lượng: ${escapeHTML(o.quantity)}</p><p>Link/UID: ${escapeHTML(o.target||'Không có')}</p><p>Liên hệ: ${escapeHTML(o.contact||'Không có')}</p><p>Ghi chú: ${escapeHTML(o.details||'Không có')}</p><small>${escapeHTML(o.time)} · ${escapeHTML(o.status)}</small></div>`).join(''):'<p class="muted">Chưa có yêu cầu nào được lưu.</p>';
+}
+function makeQuote(){
+ const service=$('service').value.trim();
+ if(!service){alert('Hãy nhập hoặc chọn dịch vụ trước.');return}
+ $('quoteText').value=`ĐSG SHOP VIP PRO MAX\\nDịch vụ: ${service}\\nSố lượng: ${$('quantity').value||'Chưa xác định'}\\nLink/UID/mã ACC: ${$('target').value||'Chưa có'}\\nGhi chú: ${$('details').value||'Không có'}\\nVui lòng báo giá và xác nhận tình trạng trước khi thanh toán.`;
+ location.hash='baogia';
+}
+async function copyQuote(){if(!$('quoteText').value)makeQuote();try{await navigator.clipboard.writeText($('quoteText').value);alert('Đã sao chép nội dung báo giá.')}catch(e){$('quoteText').select();document.execCommand('copy');alert('Đã sao chép nếu trình duyệt cho phép.')}} 
+async function copyAccount(){try{await navigator.clipboard.writeText('1072852788');alert('Đã sao chép số tài khoản.')}catch(e){alert('Số tài khoản: 1072852788')}}
+function copySupport(){const txt='Tôi cần hỗ trợ về ĐSG SHOP VIP PRO MAX. Dịch vụ: '+($('service').value||'Chưa chọn')+'. Mã yêu cầu xem trong lịch sử trên thiết bị.';navigator.clipboard?.writeText(txt).then(()=>alert('Đã sao chép nội dung hỗ trợ.')).catch(()=>alert(txt));}
+function clearHistory(){if(confirm('Bạn muốn xóa toàn bộ lịch sử trên thiết bị này?')){localStorage.removeItem('dsg_orders');renderHistory()}}
+renderHistory();
+</script>
+</body>
+</html>
